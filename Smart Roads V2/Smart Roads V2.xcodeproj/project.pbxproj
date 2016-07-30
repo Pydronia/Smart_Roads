@@ -19,6 +19,7 @@
 		0ADAAE4854C02CC9502A50D1 /* libPods-Smart Roads V2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FAD2914355AAFAC5FDF3CAB /* libPods-Smart Roads V2.a */; };
 		6F8752E61D4C50AA00971D22 /* Stuart_Highway,_Australia.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6F8752E51D4C50AA00971D22 /* Stuart_Highway,_Australia.jpg */; };
 		6FBFB28D1D4C439400D681FA /* petrol.json in Resources */ = {isa = PBXBuildFile; fileRef = 6FBFB28C1D4C439400D681FA /* petrol.json */; };
+		6FF8C4EE1D4CBF1900065ECE /* bridge_sanfran.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6FF8C4ED1D4CBF1900065ECE /* bridge_sanfran.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		661CEF589E1E3624B309DC52 /* Pods-Smart Roads V2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart Roads V2.release.xcconfig"; path = "Pods/Target Support Files/Pods-Smart Roads V2/Pods-Smart Roads V2.release.xcconfig"; sourceTree = "<group>"; };
 		6F8752E51D4C50AA00971D22 /* Stuart_Highway,_Australia.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "Stuart_Highway,_Australia.jpg"; path = "Pods/Stuart_Highway,_Australia.jpg"; sourceTree = "<group>"; };
 		6FBFB28C1D4C439400D681FA /* petrol.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = petrol.json; sourceTree = "<group>"; };
+		6FF8C4ED1D4CBF1900065ECE /* bridge_sanfran.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bridge_sanfran.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 				0470ABBC1D4C97A1002C37BC /* Images */,
 				04759BDE1D4B7CB60097E3A7 /* Podfile */,
 				6F8752E51D4C50AA00971D22 /* Stuart_Highway,_Australia.jpg */,
+				6FF8C4ED1D4CBF1900065ECE /* bridge_sanfran.jpg */,
 				04759BCB1D4B7C4C0097E3A7 /* Smart Roads V2 */,
 				04759BCA1D4B7C4C0097E3A7 /* Products */,
 				DDE6CFC4D83165A8B65E4183 /* Pods */,
@@ -183,6 +186,7 @@
 				04759BDF1D4B7CB60097E3A7 /* Podfile in Resources */,
 				0470ABBE1D4C97AB002C37BC /* empty arrow-2.png in Resources */,
 				04759BD21D4B7C4C0097E3A7 /* Main.storyboard in Resources */,
+				6FF8C4EE1D4CBF1900065ECE /* bridge_sanfran.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
