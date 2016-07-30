@@ -15,6 +15,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
     
     var willSnap: Bool = false
     var stations:[GMSMarker] = []
+    var closeStations:[GMSMarker] = []
     let locationManager = CLLocationManager()
 
     override func viewDidLoad() {
@@ -23,6 +24,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         let petrolDataLocation = NSBundle.mainBundle().pathForResource("petrol", ofType: "json")
         let petrolData = NSData(contentsOfFile: petrolDataLocation!)
         
+        
+        //loading dat petrol data
         do {
             
             let json = try NSJSONSerialization.JSONObjectWithData(petrolData!, options: []) as! [String: AnyObject]
@@ -36,6 +39,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
 //                  print(i["geometry"]!["coordinates"]!![0])
 //                  //lat
 //                  print(i["geometry"]!["coordinates"]!![1])
+                    
                     let lat = (i["geometry"]!["coordinates"]!![1]) as! Double
                     let lon = (i["geometry"]!["coordinates"]!![0]) as! Double
                     let name = String(i["properties"]!["Name"]!!)
@@ -55,13 +59,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         } catch (let error) {
             print(error)
         }
+
         
         
-        for i in stations{
-            var marker = GMSMarker()
-            marker = i
-            marker.map = self.mapView
-        }
         
         
         
@@ -117,6 +117,22 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
             let latestLocation = locations.last!
             self.mapView.camera = GMSCameraPosition.cameraWithTarget((latestLocation.coordinate), zoom: 16.0)
         }
+        
+        
+        
+        
+        //display dem stations within 5k
+        for i in stations{
+            if locationManager.location!.distanceFromLocation(CLLocation(latitude: i.position.latitude, longitude: i.position.longitude)) < 25000 &&  !closeStations.contains(i){
+                closeStations.append(i)
+                var marker = GMSMarker()
+                marker = i
+                marker.map = self.mapView
+                
+            }
+        }
+        
+        
     }
     
     
