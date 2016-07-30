@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -19,18 +20,27 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zIQ-ou-Nbg" customClass="GMSMapView">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="535"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.0" green="0.77348419253597811" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="535" id="JLb-H6-yYb"/>
                                     <constraint firstAttribute="width" constant="375" id="g6d-zS-907"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p3K-UD-1Ek">
+                                <rect key="frame" x="16" y="543" width="116" height="30"/>
+                                <state key="normal" title="Snap to Location"/>
+                                <connections>
+                                    <action selector="snapLocation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AxM-IN-e0g"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="zIQ-ou-Nbg" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-20" id="9aW-8U-MDE"/>
                             <constraint firstItem="zIQ-ou-Nbg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Ano-eK-1yG"/>
                             <constraint firstAttribute="trailing" secondItem="zIQ-ou-Nbg" secondAttribute="trailing" id="Yxg-5E-XHk"/>
+                            <constraint firstItem="p3K-UD-1Ek" firstAttribute="top" secondItem="zIQ-ou-Nbg" secondAttribute="bottom" constant="8" id="agC-8r-mK4"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="p3K-UD-1Ek" secondAttribute="leading" id="sPV-dv-jMe"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>

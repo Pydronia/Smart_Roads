@@ -13,7 +13,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
     
     @IBOutlet weak var mapView: GMSMapView!
     
-    var didFindMyLocation = false
+    var stations:[GMSMarker] = []
     let locationManager = CLLocationManager()
 
     override func viewDidLoad() {
@@ -25,21 +25,48 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         do {
             
             let json = try NSJSONSerialization.JSONObjectWithData(petrolData!, options: []) as! [String: AnyObject]
-            //print((json["features"]! as! [AnyObject]))
+            
+            if let features  = json["features"] as? [[String: AnyObject]]{
+                for i in features{
+                    
+                    let marker = GMSMarker()
+                    //print(String(i["properties"]!["Name"]!!))
+                    //long
+//                  print(i["geometry"]!["coordinates"]!![0])
+//                  //lat
+//                  print(i["geometry"]!["coordinates"]!![1])
+                    let lat = (i["geometry"]!["coordinates"]!![1]) as! Double
+                    let lon = (i["geometry"]!["coordinates"]!![0]) as! Double
+                    let name = String(i["properties"]!["Name"]!!)
+                    
+                    marker.position = CLLocationCoordinate2D(latitude: lat, longitude: lon)
+                    marker.title = name
+                    
+                    stations.append(marker)
+                    
+                }
+                
+            }
+            
+            
+//            print(json["features"]!["geometry"]!["coordinates"]!1!)
             
         } catch (let error) {
             print(error)
         }
         
+        
+        for i in stations{
+            var marker = GMSMarker()
+            marker = i
+            marker.map = self.mapView
+        }
+        
+        
+        
+        
+        
         loadMap()
-
-
-        // Creates a marker in the center of the map.
-        let marker = GMSMarker()
-        marker.position = CLLocationCoordinate2D(latitude: -33.86, longitude: 151.20)
-        marker.title = "Sydney"
-        marker.snippet = "Australia"
-        marker.map = self.mapView //(self.view as! GMSMapView)
         
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
@@ -74,6 +101,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
     
     override func prefersStatusBarHidden() -> Bool {
         return true
+    }
+    
+    @IBAction func snapLocation(sender: UIButton) {
+        
+        self.mapView.camera = GMSCameraPosition.cameraWithTarget((locationManager.location?.coordinate)!, zoom: 16.0)
+        
     }
     
     
