@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0470ABB41D4C6A32002C37BC /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0470ABB31D4C6A32002C37BC /* LocationManager.swift */; };
 		04759BCD1D4B7C4C0097E3A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04759BCC1D4B7C4C0097E3A7 /* AppDelegate.swift */; };
 		04759BCF1D4B7C4C0097E3A7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04759BCE1D4B7C4C0097E3A7 /* ViewController.swift */; };
 		04759BD21D4B7C4C0097E3A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04759BD01D4B7C4C0097E3A7 /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0470ABB31D4C6A32002C37BC /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		04759BC91D4B7C4C0097E3A7 /* Smart Roads V2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Smart Roads V2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		04759BCC1D4B7C4C0097E3A7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04759BCE1D4B7C4C0097E3A7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 			isa = PBXGroup;
 			children = (
 				04759BCC1D4B7C4C0097E3A7 /* AppDelegate.swift */,
+				0470ABB31D4C6A32002C37BC /* LocationManager.swift */,
 				04759BCE1D4B7C4C0097E3A7 /* ViewController.swift */,
 				04759BD01D4B7C4C0097E3A7 /* Main.storyboard */,
 				04759BD31D4B7C4C0097E3A7 /* Assets.xcassets */,
@@ -224,6 +227,7 @@
 			files = (
 				04759BCF1D4B7C4C0097E3A7 /* ViewController.swift in Sources */,
 				04759BCD1D4B7C4C0097E3A7 /* AppDelegate.swift in Sources */,
+				0470ABB41D4C6A32002C37BC /* LocationManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
