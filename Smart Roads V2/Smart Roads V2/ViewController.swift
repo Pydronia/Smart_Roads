@@ -14,6 +14,17 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        let petrolDataLocation = NSBundle.mainBundle().pathForResource("petrol", ofType: "json")
+        let petrolData = NSData(contentsOfFile: petrolDataLocation!)
+        
+        do {
+            
+            let json = try NSJSONSerialization.JSONObjectWithData(petrolData!, options: []) as! [String: AnyObject]
+            print((json["features"]! as! [AnyObject]))
+            
+        } catch (let error) {
+            print(error)
+        }
     }
 
     override func didReceiveMemoryWarning() {
