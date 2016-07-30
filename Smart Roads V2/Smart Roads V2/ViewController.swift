@@ -14,6 +14,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
     @IBOutlet weak var petrolNAme: UILabel!
     @IBOutlet weak var petrolDist: UILabel!
     @IBOutlet weak var mapView: GMSMapView!
+    @IBOutlet weak var scanningField: UITextField!
     
     var small: Double = 25000
     var closestStation = GMSMarker()
@@ -21,6 +22,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
     var stations:[GMSMarker] = []
     var closeStations:[GMSMarker] = []
     let locationManager = CLLocationManager()
+    
+    var scanningRad: Double = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,7 +68,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         } catch (let error) {
             print(error)
         }
-
+        
+        
+        
         
         
         
@@ -125,18 +130,28 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         self.mapView.camera = GMSCameraPosition.cameraWithTarget(closestStation.position, zoom: 16.0)
     }
     
+    @IBAction func changeRad(sender: UIButton) {
+        scanningRad = Double(scanningField.text!)!*1000
+        print(scanningRad)
+    }
+    
+    
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if(willSnap){
             let latestLocation = locations.last!
             self.mapView.camera = GMSCameraPosition.cameraWithTarget((latestLocation.coordinate), zoom: 16.0)
         }
         
-        
-        
-        
-        //display dem stations within 25k
+//        
+//        if (scanningRad == Double(0)){
+//            print("lelelele")
+//            
+//            petrolDist.text = "N/A"
+//        }
+//        
+        //display dem stations within range
         for i in stations{
-            if locationManager.location!.distanceFromLocation(CLLocation(latitude: i.position.latitude, longitude: i.position.longitude)) < 25000 &&  !closeStations.contains(i){
+            if locationManager.location!.distanceFromLocation(CLLocation(latitude: i.position.latitude, longitude: i.position.longitude)) < scanningRad &&  !closeStations.contains(i){
                 closeStations.append(i)
                 var marker = GMSMarker()
                 marker = i
@@ -145,21 +160,42 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
             }
         }
         
-        
-        //get closest station
-        
-        for i in closeStations{
-            let distance = locationManager.location!.distanceFromLocation(CLLocation(latitude: i.position.latitude, longitude: i.position.longitude))
+        //if there are nearby stations
+        if closeStations != []{
+            //get closest station
             
-            if distance < small{
-                closestStation = i
-                small = distance
+            for i in closeStations{
+                let distance = locationManager.location!.distanceFromLocation(CLLocation(latitude: i.position.latitude, longitude: i.position.longitude))
+                
+                if distance < small{
+                    closestStation = i
+                    small = distance
+                }
             }
+            
+            
+            //writing
+            if Int(small) < 1000{
+                petrolDist.text = String(Int(small)) + "m"
+            } else {
+                petrolDist.text = String(Float(Int(small)/100)) + "km"
+            }
+            
+            petrolNAme.text = closestStation.title
+            
+        } else if scanningRad != 0{
+            petrolNAme.text = "No stations in radius"
+            petrolDist.text = "N/A"
+        } else {
+            petrolNAme.text = "Please enter radius..."
+            petrolDist.text = "N/A"
         }
-        //writing
-        petrolNAme.text = closestStation.title
-        petrolDist.text = String(Int(small)) + "m"
+        
+        
+        
+
         
     }
+        
 }
 

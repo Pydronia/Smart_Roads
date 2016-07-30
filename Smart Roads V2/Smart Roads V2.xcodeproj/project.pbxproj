@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04207FDA1D4D6FDE00BD9058 /* petrol-empty.png in Resources */ = {isa = PBXBuildFile; fileRef = 04207FD91D4D6FDE00BD9058 /* petrol-empty.png */; };
+		04207FDC1D4D6FE400BD9058 /* petrol-full.png in Resources */ = {isa = PBXBuildFile; fileRef = 04207FDB1D4D6FE400BD9058 /* petrol-full.png */; };
 		0470ABB41D4C6A32002C37BC /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0470ABB31D4C6A32002C37BC /* LocationManager.swift */; };
 		0470ABBE1D4C97AB002C37BC /* empty arrow-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 0470ABBD1D4C97AB002C37BC /* empty arrow-2.png */; };
 		0470ABC01D4C97AE002C37BC /* full arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 0470ABBF1D4C97AE002C37BC /* full arrow.png */; };
@@ -24,6 +26,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		04207FD91D4D6FDE00BD9058 /* petrol-empty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "petrol-empty.png"; sourceTree = "<group>"; };
+		04207FDB1D4D6FE400BD9058 /* petrol-full.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "petrol-full.png"; sourceTree = "<group>"; };
 		0470ABB31D4C6A32002C37BC /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		0470ABBD1D4C97AB002C37BC /* empty arrow-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "empty arrow-2.png"; path = "images/empty arrow-2.png"; sourceTree = "<group>"; };
 		0470ABBF1D4C97AE002C37BC /* full arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "full arrow.png"; path = "images/full arrow.png"; sourceTree = "<group>"; };
@@ -59,6 +63,8 @@
 		0470ABBC1D4C97A1002C37BC /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				04207FDB1D4D6FE400BD9058 /* petrol-full.png */,
+				04207FD91D4D6FDE00BD9058 /* petrol-empty.png */,
 				04D8222E1D4CC6E600021812 /* petrol-2400px.png */,
 				0470ABBD1D4C97AB002C37BC /* empty arrow-2.png */,
 				0470ABBF1D4C97AE002C37BC /* full arrow.png */,
@@ -185,6 +191,8 @@
 				04759BD71D4B7C4C0097E3A7 /* LaunchScreen.storyboard in Resources */,
 				6FBFB28D1D4C439400D681FA /* petrol.json in Resources */,
 				04D8222F1D4CC6E600021812 /* petrol-2400px.png in Resources */,
+				04207FDC1D4D6FE400BD9058 /* petrol-full.png in Resources */,
+				04207FDA1D4D6FDE00BD9058 /* petrol-empty.png in Resources */,
 				6F8752E61D4C50AA00971D22 /* Stuart_Highway,_Australia.jpg in Resources */,
 				04759BD41D4B7C4C0097E3A7 /* Assets.xcassets in Resources */,
 				04759BDF1D4B7CB60097E3A7 /* Podfile in Resources */,
