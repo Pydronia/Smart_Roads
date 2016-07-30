@@ -72,7 +72,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
 
     }
     
-    
+    override func prefersStatusBarHidden() -> Bool {
+        return true
+    }
     
     
 

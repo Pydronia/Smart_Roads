@@ -18,17 +18,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zIQ-ou-Nbg" customClass="GMSMapView">
-                                <rect key="frame" x="0.0" y="20" width="375" height="515"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="535"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="515" id="JLb-H6-yYb"/>
+                                    <constraint firstAttribute="height" constant="535" id="JLb-H6-yYb"/>
                                     <constraint firstAttribute="width" constant="375" id="g6d-zS-907"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="zIQ-ou-Nbg" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="9aW-8U-MDE"/>
+                            <constraint firstItem="zIQ-ou-Nbg" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-20" id="9aW-8U-MDE"/>
                             <constraint firstItem="zIQ-ou-Nbg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Ano-eK-1yG"/>
                             <constraint firstAttribute="trailing" secondItem="zIQ-ou-Nbg" secondAttribute="trailing" id="Yxg-5E-XHk"/>
                         </constraints>
