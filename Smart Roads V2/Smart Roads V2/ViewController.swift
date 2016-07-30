@@ -13,6 +13,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
     
     @IBOutlet weak var mapView: GMSMapView!
     
+    var willSnap: Bool = false
     var stations:[GMSMarker] = []
     let locationManager = CLLocationManager()
 
@@ -70,6 +71,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
         
         
         /*
@@ -105,8 +107,16 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
     
     @IBAction func snapLocation(sender: UIButton) {
         
-        self.mapView.camera = GMSCameraPosition.cameraWithTarget((locationManager.location?.coordinate)!, zoom: 16.0)
+        willSnap = !willSnap
+        sender.selected = !sender.selected
         
+    }
+    
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if(willSnap){
+            let latestLocation = locations.last!
+            self.mapView.camera = GMSCameraPosition.cameraWithTarget((latestLocation.coordinate), zoom: 16.0)
+        }
     }
     
     

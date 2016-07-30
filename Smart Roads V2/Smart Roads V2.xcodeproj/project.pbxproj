@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0470ABB41D4C6A32002C37BC /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0470ABB31D4C6A32002C37BC /* LocationManager.swift */; };
+		0470ABBE1D4C97AB002C37BC /* empty arrow-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 0470ABBD1D4C97AB002C37BC /* empty arrow-2.png */; };
+		0470ABC01D4C97AE002C37BC /* full arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 0470ABBF1D4C97AE002C37BC /* full arrow.png */; };
 		04759BCD1D4B7C4C0097E3A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04759BCC1D4B7C4C0097E3A7 /* AppDelegate.swift */; };
 		04759BCF1D4B7C4C0097E3A7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04759BCE1D4B7C4C0097E3A7 /* ViewController.swift */; };
 		04759BD21D4B7C4C0097E3A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04759BD01D4B7C4C0097E3A7 /* Main.storyboard */; };
@@ -21,6 +23,8 @@
 
 /* Begin PBXFileReference section */
 		0470ABB31D4C6A32002C37BC /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		0470ABBD1D4C97AB002C37BC /* empty arrow-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "empty arrow-2.png"; path = "images/empty arrow-2.png"; sourceTree = "<group>"; };
+		0470ABBF1D4C97AE002C37BC /* full arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "full arrow.png"; path = "images/full arrow.png"; sourceTree = "<group>"; };
 		04759BC91D4B7C4C0097E3A7 /* Smart Roads V2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Smart Roads V2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		04759BCC1D4B7C4C0097E3A7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04759BCE1D4B7C4C0097E3A7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -48,9 +52,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0470ABBC1D4C97A1002C37BC /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				0470ABBD1D4C97AB002C37BC /* empty arrow-2.png */,
+				0470ABBF1D4C97AE002C37BC /* full arrow.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		04759BC01D4B7C4C0097E3A7 = {
 			isa = PBXGroup;
 			children = (
+				0470ABBC1D4C97A1002C37BC /* Images */,
 				04759BDE1D4B7CB60097E3A7 /* Podfile */,
 				6F8752E51D4C50AA00971D22 /* Stuart_Highway,_Australia.jpg */,
 				04759BCB1D4B7C4C0097E3A7 /* Smart Roads V2 */,
@@ -161,11 +175,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0470ABC01D4C97AE002C37BC /* full arrow.png in Resources */,
 				04759BD71D4B7C4C0097E3A7 /* LaunchScreen.storyboard in Resources */,
 				6FBFB28D1D4C439400D681FA /* petrol.json in Resources */,
 				6F8752E61D4C50AA00971D22 /* Stuart_Highway,_Australia.jpg in Resources */,
 				04759BD41D4B7C4C0097E3A7 /* Assets.xcassets in Resources */,
 				04759BDF1D4B7CB60097E3A7 /* Podfile in Resources */,
+				0470ABBE1D4C97AB002C37BC /* empty arrow-2.png in Resources */,
 				04759BD21D4B7C4C0097E3A7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -19,28 +18,38 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zIQ-ou-Nbg" customClass="GMSMapView">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="535"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="488"/>
                                 <color key="backgroundColor" red="0.0" green="0.77348419253597811" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="535" id="JLb-H6-yYb"/>
+                                    <constraint firstAttribute="height" constant="488" id="JLb-H6-yYb"/>
                                     <constraint firstAttribute="width" constant="375" id="g6d-zS-907"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p3K-UD-1Ek">
-                                <rect key="frame" x="16" y="543" width="116" height="30"/>
-                                <state key="normal" title="Snap to Location"/>
-                                <connections>
-                                    <action selector="snapLocation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AxM-IN-e0g"/>
-                                </connections>
-                            </button>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="opG-aM-jo2">
+                                <rect key="frame" x="0.0" y="488" width="375" height="44"/>
+                                <items>
+                                    <barButtonItem style="plain" id="ckR-wJ-PhG">
+                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="0xb-2U-WuN">
+                                            <rect key="frame" x="16" y="6" width="32" height="32"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" image="empty arrow-2.png"/>
+                                            <state key="selected" image="full arrow.png"/>
+                                            <connections>
+                                                <action selector="snapLocation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HoL-7Z-GC8"/>
+                                            </connections>
+                                        </button>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="opG-aM-jo2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="2Ru-dE-4J3"/>
                             <constraint firstItem="zIQ-ou-Nbg" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-20" id="9aW-8U-MDE"/>
                             <constraint firstItem="zIQ-ou-Nbg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Ano-eK-1yG"/>
-                            <constraint firstAttribute="trailing" secondItem="zIQ-ou-Nbg" secondAttribute="trailing" id="Yxg-5E-XHk"/>
-                            <constraint firstItem="p3K-UD-1Ek" firstAttribute="top" secondItem="zIQ-ou-Nbg" secondAttribute="bottom" constant="8" id="agC-8r-mK4"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="p3K-UD-1Ek" secondAttribute="leading" id="sPV-dv-jMe"/>
+                            <constraint firstAttribute="trailing" secondItem="opG-aM-jo2" secondAttribute="trailing" id="GIz-KT-04K"/>
+                            <constraint firstItem="opG-aM-jo2" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Rfe-jU-f2f"/>
+                            <constraint firstItem="opG-aM-jo2" firstAttribute="top" secondItem="zIQ-ou-Nbg" secondAttribute="bottom" id="yxP-T2-XFE"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
@@ -50,7 +59,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="130.5" y="250.5"/>
+            <point key="canvasLocation" x="-151.5" y="177.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="empty arrow-2.png" width="512" height="512"/>
+        <image name="full arrow.png" width="512" height="512"/>
+    </resources>
 </document>
