@@ -11,8 +11,12 @@ import GoogleMaps
 
 class ViewController: UIViewController, CLLocationManagerDelegate{
     
+    @IBOutlet weak var petrolNAme: UILabel!
+    @IBOutlet weak var petrolDist: UILabel!
     @IBOutlet weak var mapView: GMSMapView!
     
+    var small: Double = 25000
+    var closestStation = GMSMarker()
     var willSnap: Bool = false
     var stations:[GMSMarker] = []
     var closeStations:[GMSMarker] = []
@@ -46,6 +50,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
                     
                     marker.position = CLLocationCoordinate2D(latitude: lat, longitude: lon)
                     marker.title = name
+                    marker.appearAnimation = kGMSMarkerAnimationPop
+                    marker.icon = UIImage(named: "petrol-2400px")
                     
                     stations.append(marker)
                     
@@ -112,6 +118,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         
     }
     
+    
+    @IBAction func goToStation(sender: UIButton) {
+        willSnap = false
+        
+        self.mapView.camera = GMSCameraPosition.cameraWithTarget(closestStation.position, zoom: 16.0)
+    }
+    
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if(willSnap){
             let latestLocation = locations.last!
@@ -121,7 +134,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         
         
         
-        //display dem stations within 5k
+        //display dem stations within 25k
         for i in stations{
             if locationManager.location!.distanceFromLocation(CLLocation(latitude: i.position.latitude, longitude: i.position.longitude)) < 25000 &&  !closeStations.contains(i){
                 closeStations.append(i)
@@ -133,9 +146,20 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         }
         
         
+        //get closest station
+        
+        for i in closeStations{
+            let distance = locationManager.location!.distanceFromLocation(CLLocation(latitude: i.position.latitude, longitude: i.position.longitude))
+            
+            if distance < small{
+                closestStation = i
+                small = distance
+            }
+        }
+        //writing
+        petrolNAme.text = closestStation.title
+        petrolDist.text = String(Int(small)) + "m"
+        
     }
-    
-    
-
 }
 

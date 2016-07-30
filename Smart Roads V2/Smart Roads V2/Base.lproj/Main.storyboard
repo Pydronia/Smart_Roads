@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -19,7 +20,6 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zIQ-ou-Nbg" customClass="GMSMapView">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="488"/>
-                                <animations/>
                                 <color key="backgroundColor" red="0.0" green="0.77348419253597811" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="488" id="JLb-H6-yYb"/>
@@ -28,13 +28,11 @@
                             </view>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="opG-aM-jo2">
                                 <rect key="frame" x="0.0" y="488" width="375" height="44"/>
-                                <animations/>
                                 <items>
                                     <barButtonItem style="plain" id="ckR-wJ-PhG">
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="0xb-2U-WuN">
                                             <rect key="frame" x="16" y="6" width="32" height="32"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <animations/>
                                             <state key="normal" image="empty arrow-2.png"/>
                                             <state key="selected" image="full arrow.png"/>
                                             <connections>
@@ -44,30 +42,82 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="petrol-2400px.png" translatesAutoresizingMaskIntoConstraints="NO" id="hCh-X7-zRw">
+                                <rect key="frame" x="16" y="553" width="25" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="36M-17-x8z"/>
+                                    <constraint firstAttribute="width" constant="25" id="XEb-fN-Q3d"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nearest petrol station:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t2N-Wa-HhJ">
+                                <rect key="frame" x="64" y="555" width="189" height="23"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NAMENAMENAMENAME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mfE-AL-5as">
+                                <rect key="frame" x="60" y="603" width="203" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="203" id="JNR-Mt-dSM"/>
+                                    <constraint firstAttribute="height" constant="28" id="hrO-qI-ReD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99999" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7bz-PJ-0OC">
+                                <rect key="frame" x="271" y="606" width="88" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YyZ-d3-MTn">
+                                <rect key="frame" x="20" y="606" width="22" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="dK4-qA-x6D"/>
+                                    <constraint firstAttribute="width" constant="22" id="pvO-7r-lF4"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="goToStation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eC4-AI-4kn"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="opG-aM-jo2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="2Ru-dE-4J3"/>
+                            <constraint firstItem="7bz-PJ-0OC" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="9Dx-8O-2LL"/>
                             <constraint firstItem="zIQ-ou-Nbg" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-20" id="9aW-8U-MDE"/>
                             <constraint firstItem="zIQ-ou-Nbg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Ano-eK-1yG"/>
+                            <constraint firstItem="7bz-PJ-0OC" firstAttribute="top" secondItem="opG-aM-jo2" secondAttribute="bottom" constant="74" id="AtE-M9-xkQ"/>
+                            <constraint firstItem="YyZ-d3-MTn" firstAttribute="top" secondItem="hCh-X7-zRw" secondAttribute="bottom" constant="25" id="DR8-Rt-xDL"/>
+                            <constraint firstItem="mfE-AL-5as" firstAttribute="leading" secondItem="YyZ-d3-MTn" secondAttribute="trailing" constant="18" id="G3e-6G-RWb"/>
                             <constraint firstAttribute="trailing" secondItem="opG-aM-jo2" secondAttribute="trailing" id="GIz-KT-04K"/>
+                            <constraint firstItem="mfE-AL-5as" firstAttribute="top" secondItem="t2N-Wa-HhJ" secondAttribute="bottom" constant="25" id="Kfu-9Z-Vgc"/>
                             <constraint firstItem="opG-aM-jo2" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Rfe-jU-f2f"/>
+                            <constraint firstItem="hCh-X7-zRw" firstAttribute="top" secondItem="opG-aM-jo2" secondAttribute="bottom" constant="21" id="XSI-Op-0d8"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="hCh-X7-zRw" secondAttribute="leading" id="Yyv-7g-gpe"/>
+                            <constraint firstItem="mfE-AL-5as" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="44" id="ZCN-HC-6YI"/>
+                            <constraint firstItem="t2N-Wa-HhJ" firstAttribute="leading" secondItem="hCh-X7-zRw" secondAttribute="trailing" constant="23" id="nCc-Z9-eIV"/>
+                            <constraint firstItem="t2N-Wa-HhJ" firstAttribute="top" secondItem="opG-aM-jo2" secondAttribute="bottom" constant="23" id="p5b-bN-UuM"/>
+                            <constraint firstItem="7bz-PJ-0OC" firstAttribute="leading" secondItem="mfE-AL-5as" secondAttribute="trailing" constant="8" id="ugE-0e-1Zi"/>
                             <constraint firstItem="opG-aM-jo2" firstAttribute="top" secondItem="zIQ-ou-Nbg" secondAttribute="bottom" id="yxP-T2-XFE"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="mapView" destination="zIQ-ou-Nbg" id="yvW-ae-9gV"/>
+                        <outlet property="petrolDist" destination="7bz-PJ-0OC" id="42a-AL-hYm"/>
+                        <outlet property="petrolNAme" destination="mfE-AL-5as" id="hxt-nl-5hA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-151.5" y="177.5"/>
+            <point key="canvasLocation" x="-199.5" y="199.5"/>
         </scene>
     </scenes>
     <resources>
         <image name="empty arrow-2.png" width="512" height="512"/>
         <image name="full arrow.png" width="512" height="512"/>
+        <image name="petrol-2400px.png" width="25" height="28"/>
     </resources>
 </document>

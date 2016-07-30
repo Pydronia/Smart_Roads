@@ -16,6 +16,7 @@
 		04759BD41D4B7C4C0097E3A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04759BD31D4B7C4C0097E3A7 /* Assets.xcassets */; };
 		04759BD71D4B7C4C0097E3A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04759BD51D4B7C4C0097E3A7 /* LaunchScreen.storyboard */; };
 		04759BDF1D4B7CB60097E3A7 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 04759BDE1D4B7CB60097E3A7 /* Podfile */; };
+		04D8222F1D4CC6E600021812 /* petrol-2400px.png in Resources */ = {isa = PBXBuildFile; fileRef = 04D8222E1D4CC6E600021812 /* petrol-2400px.png */; };
 		0ADAAE4854C02CC9502A50D1 /* libPods-Smart Roads V2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FAD2914355AAFAC5FDF3CAB /* libPods-Smart Roads V2.a */; };
 		6F8752E61D4C50AA00971D22 /* Stuart_Highway,_Australia.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6F8752E51D4C50AA00971D22 /* Stuart_Highway,_Australia.jpg */; };
 		6FBFB28D1D4C439400D681FA /* petrol.json in Resources */ = {isa = PBXBuildFile; fileRef = 6FBFB28C1D4C439400D681FA /* petrol.json */; };
@@ -34,6 +35,7 @@
 		04759BD61D4B7C4C0097E3A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		04759BD81D4B7C4C0097E3A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04759BDE1D4B7CB60097E3A7 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		04D8222E1D4CC6E600021812 /* petrol-2400px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "petrol-2400px.png"; sourceTree = "<group>"; };
 		2FAD2914355AAFAC5FDF3CAB /* libPods-Smart Roads V2.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Smart Roads V2.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4466A5776D26CD77DB79DC49 /* Pods-Smart Roads V2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart Roads V2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Smart Roads V2/Pods-Smart Roads V2.debug.xcconfig"; sourceTree = "<group>"; };
 		661CEF589E1E3624B309DC52 /* Pods-Smart Roads V2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart Roads V2.release.xcconfig"; path = "Pods/Target Support Files/Pods-Smart Roads V2/Pods-Smart Roads V2.release.xcconfig"; sourceTree = "<group>"; };
@@ -57,6 +59,7 @@
 		0470ABBC1D4C97A1002C37BC /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				04D8222E1D4CC6E600021812 /* petrol-2400px.png */,
 				0470ABBD1D4C97AB002C37BC /* empty arrow-2.png */,
 				0470ABBF1D4C97AE002C37BC /* full arrow.png */,
 			);
@@ -181,6 +184,7 @@
 				0470ABC01D4C97AE002C37BC /* full arrow.png in Resources */,
 				04759BD71D4B7C4C0097E3A7 /* LaunchScreen.storyboard in Resources */,
 				6FBFB28D1D4C439400D681FA /* petrol.json in Resources */,
+				04D8222F1D4CC6E600021812 /* petrol-2400px.png in Resources */,
 				6F8752E61D4C50AA00971D22 /* Stuart_Highway,_Australia.jpg in Resources */,
 				04759BD41D4B7C4C0097E3A7 /* Assets.xcassets in Resources */,
 				04759BDF1D4B7CB60097E3A7 /* Podfile in Resources */,
