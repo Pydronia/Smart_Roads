@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  Smart Roads V2
 //
-//  Created by Jack Carey on 29/07/2016.
+//  Created by Jack Carey, Madoc Cottle and James Greatbanks, from 29/07/16 to 31/07/16.
 //  Copyright © 2016 Smart Roads. All rights reserved.
 //
 
