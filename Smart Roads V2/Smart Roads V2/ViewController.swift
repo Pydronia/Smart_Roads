@@ -36,7 +36,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         let petrolDataLocation = NSBundle.mainBundle().pathForResource("petrol", ofType: "json")
+        let canberraBusLocation = NSBundle.mainBundle().pathForResource("canberra_bus", ofType: "json")
+        let melbourneBusLocation = NSBundle.mainBundle().pathForResource("melbourne_bus", ofType: "json")
         let petrolData = NSData(contentsOfFile: petrolDataLocation!)
+        let canberraBus = NSData(contentsOfFile: canberraBusLocation!)
+        let melboureBus = NSData(contentsOfFile: melbourneBusLocation!)
         
         petrolButton.selected = true
         
