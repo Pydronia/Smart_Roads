@@ -16,6 +16,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
     @IBOutlet weak var mapView: GMSMapView!
     @IBOutlet weak var scanningField: UITextField!
     @IBOutlet weak var petrolButton: UIButton!
+    @IBOutlet weak var busButton: UIButton!
     @IBOutlet weak var indicatorLabel: UILabel!
     @IBOutlet weak var locationSnap: UIButton!
     
@@ -24,11 +25,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
     var willSnap: Bool = false
     var petStations:[GMSMarker] = []
     var closePetStations:[GMSMarker] = []
+    var busStations:[GMSMarker] = []
+    var closeBusStations:[GMSMarker] = []
     let locationManager = CLLocationManager()
     
     var currentView: Int = 0
     //0: Petrol
-    //
+    //1: Busstops
     
     var scanningRad: Double = 0
 
@@ -36,11 +39,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         let petrolDataLocation = NSBundle.mainBundle().pathForResource("petrol", ofType: "json")
-        let canberraBusLocation = NSBundle.mainBundle().pathForResource("canberra_bus", ofType: "json")
-        let melbourneBusLocation = NSBundle.mainBundle().pathForResource("melbourne_bus", ofType: "json")
+        let canberraBusLocation = NSBundle.mainBundle().pathForResource("busstops", ofType: "json")
+        //let melbourneBusLocation = NSBundle.mainBundle().pathForResource("melbourne_bus", ofType: "json")
         let petrolData = NSData(contentsOfFile: petrolDataLocation!)
         let canberraBus = NSData(contentsOfFile: canberraBusLocation!)
-        let melboureBus = NSData(contentsOfFile: melbourneBusLocation!)
+        //let melboureBus = NSData(contentsOfFile: melbourneBusLocation!)
         
         petrolButton.selected = true
         
@@ -83,8 +86,67 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         
         
         
+        //loading dat bus data
+        do {
+            let jsonBus = try NSJSONSerialization.JSONObjectWithData(canberraBus!, options: []) as! [String: AnyObject]
+            if let busFeatures = jsonBus["stop"] as? [[String: AnyObject]]{
+                for i in busFeatures{
+                    let marker = GMSMarker()
+                    
+                    marker.title = i["stop_name"] as? String
+                    
+                    let latAndLong = i["stop_loc"] as! String
+                    let lat = latAndLong.componentsSeparatedByString(", ")[0]
+                    let long = latAndLong.componentsSeparatedByString(", ")[1]
+                    let realLat = lat.stringByReplacingOccurrencesOfString("(", withString: "").stringByReplacingOccurrencesOfString(")", withString: "")
+                    let realLong = long.stringByReplacingOccurrencesOfString("(", withString: "").stringByReplacingOccurrencesOfString(")", withString: "")
+                    
+                    let position = CLLocationCoordinate2D(latitude: Double(realLat)!, longitude: Double(realLong)!)
+                    marker.position = position
+                    marker.appearAnimation = kGMSMarkerAnimationPop
+                    marker.icon = UIImage(named: "empty bus")
+                    
+                    busStations.append(marker)
+                    
+                }
+            }
+            
+            
+        } catch (let error) {
+            print(error)
+        }
         
+        /*
+        do {
+            let jsonBus = try NSJSONSerialization.JSONObjectWithData(melboureBus!, options: []) as! [String: AnyObject]
+            if let busFeatures = jsonBus["features"] as? [[String: AnyObject]]{
+                for i in busFeatures{
+                    
+                    
+                    let marker = GMSMarker()
+                    
+                    marker.title = "Bus Stop"
+                    
+                    
+                    let lat = i["geometry"]!["coordinates"]!![0]!
+                    let lon = i["geometry"]!["coordinates"]!![1]!
+                    
+                    let position = CLLocationCoordinate2D(latitude: Double(lat as! NSNumber), longitude: Double(lon as! NSNumber))
+                    marker.position = position
+                    marker.appearAnimation = kGMSMarkerAnimationPop
+                    marker.icon = UIImage(named: "empty bus")
+                    
+                    busStations.append(marker)
+                    
+                }
+            }
+            
+            
+        } catch (let error) {
+            print(error)
+        }
         
+        */
         
         
         
@@ -156,8 +218,23 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
             self.mapView.clear()
             willSnap = false
             locationSnap.selected = false
+            busButton.selected = false
+            closePetStations = []
         }
     }
+    
+    @IBAction func busStops(sender: UIButton) {
+        if currentView != 1{
+            currentView = 1
+            busButton.selected = true
+            self.mapView.clear()
+            willSnap = false
+            locationSnap.selected = false
+            petrolButton.selected = false
+            closeBusStations = []
+        }
+    }
+    
     
     
     
@@ -220,8 +297,56 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
                 petrolDist.text = "N/A"
             }
         
-        
+            
+            
+        //BUS STATIONS
+        } else if (currentView == 1){
+            indicatorLabel.text = "Nearest bus stop:"
+            
+            for i in busStations{
+                if locationManager.location!.distanceFromLocation(CLLocation(latitude: i.position.latitude, longitude: i.position.longitude)) < scanningRad &&  !closeBusStations.contains(i){
+                    closeBusStations.append(i)
+                    var marker = GMSMarker()
+                    marker = i
+                    marker.map = self.mapView
+                }
+            }
+            
+            
+            //if there are nearby stations
+            if closeBusStations != []{
+                //get closest station
+                
+                for i in closeBusStations{
+                    let distance = locationManager.location!.distanceFromLocation(CLLocation(latitude: i.position.latitude, longitude: i.position.longitude))
+                    
+                    if distance < small{
+                        closestStation = i
+                        small = distance
+                    }
+                }
+                
+                
+                //writing
+                if Int(small) < 1000{
+                    petrolDist.text = String(Int(small)) + "m"
+                } else {
+                    petrolDist.text = String(Float(Int(small)/100)) + "km"
+                }
+                
+                petrolNAme.text = closestStation.title
+                
+            } else if scanningRad != 0{
+                petrolNAme.text = "No stops in radius"
+                petrolDist.text = "N/A"
+            } else {
+                petrolNAme.text = "Please enter radius..."
+                petrolDist.text = "N/A"
+            }
+
+            
         }
+        
 
         
     }
