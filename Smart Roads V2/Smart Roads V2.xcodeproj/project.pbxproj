@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		040B81331D4D8E8F0072E5A9 /* empty bus 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 040B81321D4D8E8F0072E5A9 /* empty bus 2.png */; };
 		04207FDA1D4D6FDE00BD9058 /* petrol-empty.png in Resources */ = {isa = PBXBuildFile; fileRef = 04207FD91D4D6FDE00BD9058 /* petrol-empty.png */; };
 		04207FDC1D4D6FE400BD9058 /* petrol-full.png in Resources */ = {isa = PBXBuildFile; fileRef = 04207FDB1D4D6FE400BD9058 /* petrol-full.png */; };
 		0470ABB41D4C6A32002C37BC /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0470ABB31D4C6A32002C37BC /* LocationManager.swift */; };
@@ -31,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		040B81321D4D8E8F0072E5A9 /* empty bus 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "empty bus 2.png"; sourceTree = "<group>"; };
 		04207FD91D4D6FDE00BD9058 /* petrol-empty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "petrol-empty.png"; sourceTree = "<group>"; };
 		04207FDB1D4D6FE400BD9058 /* petrol-full.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "petrol-full.png"; sourceTree = "<group>"; };
 		0470ABB31D4C6A32002C37BC /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 		0470ABBC1D4C97A1002C37BC /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				040B81321D4D8E8F0072E5A9 /* empty bus 2.png */,
 				04AE4C2D1D4D8821002975F7 /* empty bus 3.png */,
 				04AE4C2B1D4D8719002975F7 /* full bus.png */,
 				04AE4C291D4D85FF002975F7 /* empty bus.png */,
@@ -205,6 +208,7 @@
 				04AE4C2A1D4D85FF002975F7 /* empty bus.png in Resources */,
 				0470ABC01D4C97AE002C37BC /* full arrow.png in Resources */,
 				04759BD71D4B7C4C0097E3A7 /* LaunchScreen.storyboard in Resources */,
+				040B81331D4D8E8F0072E5A9 /* empty bus 2.png in Resources */,
 				6FBFB28D1D4C439400D681FA /* petrol.json in Resources */,
 				04AE4C2E1D4D8821002975F7 /* empty bus 3.png in Resources */,
 				04D8222F1D4CC6E600021812 /* petrol-2400px.png in Resources */,

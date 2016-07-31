@@ -19,6 +19,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
     @IBOutlet weak var busButton: UIButton!
     @IBOutlet weak var indicatorLabel: UILabel!
     @IBOutlet weak var locationSnap: UIButton!
+    @IBOutlet weak var modeIcon: UIImageView!
     
     var small: Double = 25000
     var closestStation = GMSMarker()
@@ -220,6 +221,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
             locationSnap.selected = false
             busButton.selected = false
             closePetStations = []
+            modeIcon.image = UIImage(named: "petrol-2400px")
+            closestStation = GMSMarker()
+            small = scanningRad
         }
     }
     
@@ -232,6 +236,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
             locationSnap.selected = false
             petrolButton.selected = false
             closeBusStations = []
+            modeIcon.image = UIImage(named: "empty bus 2")
+            closestStation = GMSMarker()
+            small = scanningRad
         }
     }
     
@@ -284,7 +291,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
                 if Int(small) < 1000{
                     petrolDist.text = String(Int(small)) + "m"
                 } else {
-                    petrolDist.text = String(Float(Int(small)/100)) + "km"
+                    petrolDist.text = String(Float(Int(small)/1000)) + "km"
                 }
             
                 petrolNAme.text = closestStation.title
@@ -331,7 +338,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
                 if Int(small) < 1000{
                     petrolDist.text = String(Int(small)) + "m"
                 } else {
-                    petrolDist.text = String(Float(Int(small)/100)) + "km"
+                    petrolDist.text = String(Float(Int(small)/1000)) + "km"
                 }
                 
                 petrolNAme.text = closestStation.title

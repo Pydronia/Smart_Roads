@@ -24,6 +24,10 @@
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="petrol-2400px.png" translatesAutoresizingMaskIntoConstraints="NO" id="hCh-X7-zRw">
                                 <rect key="frame" x="13" y="542" width="25" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="25" id="3gp-oF-vA0"/>
+                                    <constraint firstAttribute="height" constant="28" id="9dn-ph-Efi"/>
+                                </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nearest petrol station:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t2N-Wa-HhJ">
                                 <rect key="frame" x="56" y="544" width="189" height="23"/>
@@ -84,20 +88,9 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="opG-aM-jo2">
                                 <rect key="frame" x="0.0" y="488" width="375" height="44"/>
                                 <items>
-                                    <barButtonItem style="plain" id="ckR-wJ-PhG">
-                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="0xb-2U-WuN">
-                                            <rect key="frame" x="16" y="6" width="32" height="32"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" image="empty arrow-2.png"/>
-                                            <state key="selected" image="full arrow.png"/>
-                                            <connections>
-                                                <action selector="snapLocation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HoL-7Z-GC8"/>
-                                            </connections>
-                                        </button>
-                                    </barButtonItem>
                                     <barButtonItem style="plain" id="cah-z8-Y3B">
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="iNd-nT-04g">
-                                            <rect key="frame" x="58" y="6" width="32" height="32"/>
+                                            <rect key="frame" x="16" y="6" width="145" height="32"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" image="petrol-empty.png"/>
                                             <state key="selected" image="petrol-full.png"/>
@@ -106,9 +99,20 @@
                                             </connections>
                                         </button>
                                     </barButtonItem>
+                                    <barButtonItem style="plain" id="ckR-wJ-PhG">
+                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="0xb-2U-WuN">
+                                            <rect key="frame" x="171" y="6" width="32" height="32"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" image="empty arrow-2.png"/>
+                                            <state key="selected" image="full arrow.png"/>
+                                            <connections>
+                                                <action selector="snapLocation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HoL-7Z-GC8"/>
+                                            </connections>
+                                        </button>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" id="WMP-qd-A7g">
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="6mg-d4-n3G">
-                                            <rect key="frame" x="100" y="6" width="32" height="32"/>
+                                            <rect key="frame" x="213" y="6" width="136" height="32"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" image="empty bus 3.png"/>
                                             <state key="selected" image="full bus.png"/>
@@ -160,6 +164,7 @@
                         <outlet property="indicatorLabel" destination="t2N-Wa-HhJ" id="dPy-nw-krP"/>
                         <outlet property="locationSnap" destination="0xb-2U-WuN" id="ZcO-1w-HEI"/>
                         <outlet property="mapView" destination="zIQ-ou-Nbg" id="yvW-ae-9gV"/>
+                        <outlet property="modeIcon" destination="hCh-X7-zRw" id="CfG-aK-gOw"/>
                         <outlet property="petrolButton" destination="iNd-nT-04g" id="3pA-C1-vmT"/>
                         <outlet property="petrolDist" destination="7bz-PJ-0OC" id="42a-AL-hYm"/>
                         <outlet property="petrolNAme" destination="mfE-AL-5as" id="hxt-nl-5hA"/>
