@@ -255,7 +255,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if(willSnap){
             let latestLocation = locations.last!
-            self.mapView.camera = GMSCameraPosition.cameraWithTarget((latestLocation.coordinate), zoom: 16.0)
+            self.mapView.camera = GMSCameraPosition.cameraWithTarget((latestLocation.coordinate), zoom: 14.0)
         }
         
         //PETROL
