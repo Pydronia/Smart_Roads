@@ -15,13 +15,20 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
     @IBOutlet weak var petrolDist: UILabel!
     @IBOutlet weak var mapView: GMSMapView!
     @IBOutlet weak var scanningField: UITextField!
+    @IBOutlet weak var petrolButton: UIButton!
+    @IBOutlet weak var indicatorLabel: UILabel!
+    @IBOutlet weak var locationSnap: UIButton!
     
     var small: Double = 25000
     var closestStation = GMSMarker()
     var willSnap: Bool = false
-    var stations:[GMSMarker] = []
-    var closeStations:[GMSMarker] = []
+    var petStations:[GMSMarker] = []
+    var closePetStations:[GMSMarker] = []
     let locationManager = CLLocationManager()
+    
+    var currentView: Int = 0
+    //0: Petrol
+    //
     
     var scanningRad: Double = 0
 
@@ -31,6 +38,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         let petrolDataLocation = NSBundle.mainBundle().pathForResource("petrol", ofType: "json")
         let petrolData = NSData(contentsOfFile: petrolDataLocation!)
         
+        petrolButton.selected = true
         
         //loading dat petrol data
         do {
@@ -56,7 +64,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
                     marker.appearAnimation = kGMSMarkerAnimationPop
                     marker.icon = UIImage(named: "petrol-2400px")
                     
-                    stations.append(marker)
+                    petStations.append(marker)
                     
                 }
                 
@@ -126,14 +134,34 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
     
     @IBAction func goToStation(sender: UIButton) {
         willSnap = false
-        
+        locationSnap.selected = false
         self.mapView.camera = GMSCameraPosition.cameraWithTarget(closestStation.position, zoom: 16.0)
     }
     
     @IBAction func changeRad(sender: UIButton) {
         scanningRad = Double(scanningField.text!)!*1000
-        print(scanningRad)
     }
+    
+    
+    
+    
+    @IBAction func petrolStation(sender: UIButton) {
+        if currentView != 0{
+            currentView = 0
+            petrolButton.selected = true
+            self.mapView.clear()
+            willSnap = false
+            locationSnap.selected = false
+        }
+    }
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -142,57 +170,54 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
             self.mapView.camera = GMSCameraPosition.cameraWithTarget((latestLocation.coordinate), zoom: 16.0)
         }
         
-//        
-//        if (scanningRad == Double(0)){
-//            print("lelelele")
-//            
-//            petrolDist.text = "N/A"
-//        }
-//        
-        //display dem stations within range
-        for i in stations{
-            if locationManager.location!.distanceFromLocation(CLLocation(latitude: i.position.latitude, longitude: i.position.longitude)) < scanningRad &&  !closeStations.contains(i){
-                closeStations.append(i)
-                var marker = GMSMarker()
-                marker = i
-                marker.map = self.mapView
-                
-            }
-        }
-        
-        //if there are nearby stations
-        if closeStations != []{
-            //get closest station
+        //PETROL
+        if(currentView == 0){
             
-            for i in closeStations{
-                let distance = locationManager.location!.distanceFromLocation(CLLocation(latitude: i.position.latitude, longitude: i.position.longitude))
-                
-                if distance < small{
-                    closestStation = i
-                    small = distance
+            indicatorLabel.text = "Nearest petrol station:"
+            //display dem stations within range
+            for i in petStations{
+                if locationManager.location!.distanceFromLocation(CLLocation(latitude: i.position.latitude, longitude: i.position.longitude)) < scanningRad &&  !closePetStations.contains(i){
+                    closePetStations.append(i)
+                    var marker = GMSMarker()
+                    marker = i
+                    marker.map = self.mapView
+                    
                 }
             }
+        
+            //if there are nearby stations
+            if closePetStations != []{
+                //get closest station
+            
+                for i in closePetStations{
+                    let distance = locationManager.location!.distanceFromLocation(CLLocation(latitude: i.position.latitude, longitude: i.position.longitude))
+                    
+                    if distance < small{
+                        closestStation = i
+                        small = distance
+                    }
+                }
             
             
             //writing
-            if Int(small) < 1000{
-                petrolDist.text = String(Int(small)) + "m"
+                if Int(small) < 1000{
+                    petrolDist.text = String(Int(small)) + "m"
+                } else {
+                    petrolDist.text = String(Float(Int(small)/100)) + "km"
+                }
+            
+                petrolNAme.text = closestStation.title
+            
+            } else if scanningRad != 0{
+                petrolNAme.text = "No stations in radius"
+                petrolDist.text = "N/A"
             } else {
-                petrolDist.text = String(Float(Int(small)/100)) + "km"
+                petrolNAme.text = "Please enter radius..."
+                petrolDist.text = "N/A"
             }
-            
-            petrolNAme.text = closestStation.title
-            
-        } else if scanningRad != 0{
-            petrolNAme.text = "No stations in radius"
-            petrolDist.text = "N/A"
-        } else {
-            petrolNAme.text = "Please enter radius..."
-            petrolDist.text = "N/A"
+        
+        
         }
-        
-        
-        
 
         
     }

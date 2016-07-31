@@ -102,7 +102,7 @@
                                             <state key="normal" image="petrol-empty.png"/>
                                             <state key="selected" image="petrol-full.png"/>
                                             <connections>
-                                                <action selector="snapLocation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WUv-DU-Zv4"/>
+                                                <action selector="petrolStation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="32Y-NZ-cAE"/>
                                             </connections>
                                         </button>
                                     </barButtonItem>
@@ -145,7 +145,10 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="indicatorLabel" destination="t2N-Wa-HhJ" id="dPy-nw-krP"/>
+                        <outlet property="locationSnap" destination="0xb-2U-WuN" id="ZcO-1w-HEI"/>
                         <outlet property="mapView" destination="zIQ-ou-Nbg" id="yvW-ae-9gV"/>
+                        <outlet property="petrolButton" destination="iNd-nT-04g" id="3pA-C1-vmT"/>
                         <outlet property="petrolDist" destination="7bz-PJ-0OC" id="42a-AL-hYm"/>
                         <outlet property="petrolNAme" destination="mfE-AL-5as" id="hxt-nl-5hA"/>
                         <outlet property="scanningField" destination="fJZ-pw-LxR" id="Jbr-ov-wyV"/>
